@@ -4,14 +4,11 @@
 # include <iostream>
 # include <cmath>
 # include <Eigen/Dense>
-# include <chrono> // TMP debug
 # include <SDL.h>
 # include <SDL_image.h>
 // # include <SDL2_gfxPrimitives.h>
 # include "GameEngine.hpp"
 
-# define WIN_H 1280
-# define WIN_W 1280
 # define COLS 19
 # define ROWS 19
 
@@ -51,9 +48,14 @@ private:
     SDL_Renderer    *_renderer;
     SDL_Event       _event;
     SDL_Color       _bg_color;
-    uint32_t        _grid_padding = 8;
-    int32_t         _stone_size = 56;
-
+    /* Board variables */
+    int32_t         _win_w;
+    int32_t         _win_h;
+    int32_t         _res_w;
+    int32_t         _res_h;
+    float           _win_res_ratio;
+    uint32_t        _grid_padding;
+    int32_t         _stone_size;
     /* Helpers for coordinates convertions */
     Eigen::Array2i  _pad;
     Eigen::Array2f  _inc;
